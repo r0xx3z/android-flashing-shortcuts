@@ -6,6 +6,7 @@ from main import *
 import os
 from webbrowser import open_new_tab as opensite
 import sys
+import platformtools
 
 class Start(QDialog):
     def __init__(self, parentv, runtime):
@@ -68,6 +69,9 @@ class Start(QDialog):
         self.g2fbut.clicked.connect(lambda:opensite("https://github.com/fawazahmed0/Latest-adb-fastboot-installer-for-windows"))
         self.g2butl.addWidget(self.g2but)
         self.g2butl.addWidget(self.g2fbut)
+        if not sys.platform.startswith("win"):
+            # "drivers" don't apply on Linux, it's usually a udev rules / group permissions issue instead
+            self.g2fbut.hide()
         self.g2but.clicked.connect(lambda: self.nextt(self.g2,self.g3))
         self.l.addWidget(self.g2)
 
@@ -135,7 +139,7 @@ class Start(QDialog):
         workercheck.readyReadStandardError.connect(updatecheck)
         workercheck.finished.connect(updatecheck)
 
-        workercheck.start("fastboot getvar product")
+        workercheck.start(platformtools.resolve_command(self.parentv.curdir, "fastboot getvar product"))
 
     def changesafe(self):
         self.parentv.config["safe"] = True

@@ -1,5 +1,6 @@
 from PyQt5.QtCore import *
 import os
+import platformtools
 
 class RunTime(QProcess):
     def __init__(self,parentv,runtime):
@@ -31,7 +32,7 @@ class RunTime(QProcess):
             self.readyReadStandardError.connect(self.update)
             self.finished.connect(self.second)
             self.runtime.isRunning = True
-            self.start("adb shell cmd package list packages -3")
+            self.start(platformtools.resolve_command(self.parentv.curdir, "adb shell cmd package list packages -3"))
             print("Started first phase")
 
     def update(self):
@@ -110,7 +111,7 @@ class RunTime(QProcess):
         self.errorOccurred.connect(self.update2)
         self.readyReadStandardError.connect(self.update2)
         self.finished.connect(self.third)
-        self.start("adb shell cmd package list packages -s")
+        self.start(platformtools.resolve_command(self.parentv.curdir, "adb shell cmd package list packages -s"))
         print("started second phase")
         print(self.installedapps)
 
@@ -127,5 +128,5 @@ class RunTime(QProcess):
         self.errorOccurred.connect(self.update3)
         self.readyReadStandardError.connect(self.update3)
         self.finished.connect(self.parentv.detectapps)
-        self.start("adb shell cmd package list packages -d")
+        self.start(platformtools.resolve_command(self.parentv.curdir, "adb shell cmd package list packages -d"))
         print("Started third phase")

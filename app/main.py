@@ -372,13 +372,13 @@ class App(QWidget):
         try:
             releasenotesurl = "https://raw.githubusercontent.com/broke-tech/android-flashing-shortcuts/refs/heads/main/app/assets/newreleases.json"
             r = requests.get(releasenotesurl)
-            with open(curdir+r"\assets\newreleases.json","w") as file:
+            with open(os.path.join(curdir,"assets","newreleases.json"),"w") as file:
                 file.write(r.text)
         except:
-            with open(curdir+r"\assets\newreleases.json","w") as file:
+            with open(os.path.join(curdir,"assets","newreleases.json"),"w") as file:
                 json.dump({"latest":version,"releases":{version:{"name":version,"date":"???","notes":"No internet connection!"}}},file)
 
-        with open(curdir+r"\assets\newreleases.json","r") as file:
+        with open(os.path.join(curdir,"assets","newreleases.json"),"r") as file:
             releasenotes = json.load(file)
 
         if releasenotes["latest"] != version:

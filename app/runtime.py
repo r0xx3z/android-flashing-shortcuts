@@ -1,5 +1,6 @@
 from PyQt5.QtCore import *
 import os
+import platformtools
 
 class RunTime(QProcess):
     def __init__(self,parentv):
@@ -19,11 +20,11 @@ class RunTime(QProcess):
             if self.parentv.yesno == True:
                 self.isRunning = True
                 self.curterminal = terminal
-                self.start(command)
+                self.start(platformtools.resolve_command(self.parentv.curdir, command))
         else:
             self.isRunning = True
             self.curterminal = terminal
-            self.start(command)
+            self.start(platformtools.resolve_command(self.parentv.curdir, command))
 
     def update(self):
         out = self.readAllStandardOutput().data().decode().strip()
