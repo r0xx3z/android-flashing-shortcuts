@@ -1,14 +1,19 @@
-# Android Flashing Shortcuts
-##Moved from https://github.com/broke-tech/android-flashing-shortcuts-legacy
-
+<h1 align="center"> Android Flashing Shortcuts (AFS) </h1>
 
 <img width="434" height="317" alt="Screenshot 2026-09-21 215622" src="https://github.com/user-attachments/assets/dbc676b2-bd24-4de6-b319-7f9cdc827f14" />
 <img width="434" height="317" alt="Screenshot 2026-09-21 215607" src="https://github.com/user-attachments/assets/e1909f76-556a-47ff-a753-b54fc26efcef" />
 <img width="434" height="317" alt="Screenshot 2026-09-21 215628" src="https://github.com/user-attachments/assets/5ee9ac63-3fe6-4144-821a-7aa9b6c8400c" />
 
-Fastboot and ADB are great until you're on your fifth flash of the night, retyping the same commands and hoping you didn't typo a partition name.
+---
 
-I built Android Flashing Shortcuts (AFS) to fix that. It's a small GUI that wraps the commands you actually use, so you can click a button instead of digging through your terminal history.
+<p align="center">
+  <a href="https://buymeacoffee.com/broketech" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+</p>
+
+---
+
+# Overview
+Android Flashing Shortcuts (AFS) it's a small GUI that wraps the commands you actually use, so you can click a button instead of digging through your terminal history.
 
 ## What it does
 
@@ -28,8 +33,7 @@ Flashing can brick a device. AFS makes the commands easier to run, not safer to 
 
 You're responsible for what you flash. I'm just trying to save you some typing.
 
-## Something broke?
-
+## Bugs?
 Open an [issue](https://github.com/broke-tech/android-flashing-shortcuts/issues) and tell me:
 
 - What you clicked
@@ -43,8 +47,4 @@ Pull requests and ideas are welcome. If you're planning something big, open an i
 
 ## Release notes
 
-See [`releasenotes.json`](releasenotes.json) for what's changed between versions.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
+See [Changelogs](releasenotes.json) for what's changed between versions.
